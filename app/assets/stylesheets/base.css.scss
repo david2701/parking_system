@@ -1,0 +1,59 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+.button-opt {
+  padding: 10px;
+}
+
+/* Slots */
+
+.slot-occupied {
+  background-color:#ed3c15;
+  color: #fcfcf7;
+  font-weight: bold;
+  border: 2px solid #f5ebee;
+  text-align: center;
+  padding: 10px;
+}
+
+.slot-free {
+  background-color:#57bf56;
+  color: #fcfcf7;
+  font-weight: bold;
+  border: 2px solid #f5ebee;
+  text-align: center;
+  padding: 10px;
+}

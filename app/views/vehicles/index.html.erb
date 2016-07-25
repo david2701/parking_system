@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= render partial: "layouts/user_menu" %>
+  </div>
+  <div class="col-md-10">
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <h4>My Vehicles</h4>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="table-striped table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                Model
+              </th>
+              <th>
+                Year
+              </th>
+              <th>
+                VIN
+              </th>
+              <th>
+                History
+              </th>
+              <th>
+                Options
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @vehicles.each do |vehicle|%>
+              <tr>
+                <td><%= vehicle.model %></td>
+                <td><%= vehicle.year %></td>
+                <td><%= vehicle.vin %></td>
+                <td><%=%></td>
+                <td>
+                  <div class="row">
+                    <%= link_to "Edit",
+                        edit_user_vehicle_path(@user, vehicle),
+                        class: 'btn btn-default' %>
+                    <%= link_to "Delete",
+                        user_vehicle_path(@user, vehicle),
+                        method: 'delete',
+                        class: 'btn btn-danger',
+                        data: {confirm: "Are you sure?"} %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 button-opt">
+        <%= link_to "Add Vehicle",
+            new_user_vehicle_path(@user),
+            class: 'btn btn-success'%>
+      </div>
+      <div class="col-md-10">
+      </div>
+    </div>
+  </div>
+</div>

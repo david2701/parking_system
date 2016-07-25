@@ -1,0 +1,56 @@
+<div class="row" >
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <h3 class="text-center"> New Vehicle for <%= @user.first_name %> <%= @user.last_name %></h3>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <%= form_for @vehicle, url: {action: 'create'} do |form|%>
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.label :model, for:'model'%>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.text_field :model, class:'form-control', required: true%>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.label :year %>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.select :year, (Time.zone.now.year - 100)..(Time.zone.now.year), class: 'form-control', required: true %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.label :vin %>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.text_field :vin, required: true, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit "Register Vehicle", class: 'btn btn-success'%>
+        <%= link_to "Cancel", user_vehicles_path(@user), class: 'btn btn-default'%>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>

@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-md-2">
+    <%= render partial: "layouts/user_menu" %>
+  </div>
+  <div class="col-md-10">
+
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="col-md-8">
+        <h4>Parking History for <%= @park_record_presenter.name %></h4>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="table-striped table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                Car VIN
+              </th>
+              <th>
+                Slot Id
+              </th>
+              <th>
+                Entry Date
+              </th>
+              <th>
+                Exit Date
+              </th>
+              <th>
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @park_record_presenter.park_records_for_location.each do |record|%>
+              <tr>
+                <td><%= record.vehicle_vin %></td>
+                <td><%= record.slot_id %></td>
+                <td><%= record.entry_date %></td>
+                <td><%= record.exit_date %></td>
+                <td><%= record.total %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      Reports at <h4><%= DateTime.now %></h4>
+      <div class="table-striped table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                Total Vehicles
+              </th>
+              <th>
+                Total Ammount
+              </th>
+              <th>
+                Occupied Slots
+              </th>
+              <th>
+                Empty Slots
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>  <%= @park_record_presenter.total_vehicles_for_location %> Vehicles</td>
+              <td> $ <%= @park_record_presenter.total_ammount_for_location %></td>
+              <td> <%= @park_record_presenter.occupied_slots_for_location.count %> / <%= @park_record_presenter.slots.count %></td>
+              <td> <%= @park_record_presenter.empty_slots_for_location.count %> / <%= @park_record_presenter.slots.count %> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 button-opt">
+        <%= link_to "Slots",
+            location_slots_path(@park_record_presenter.location),
+            class: 'btn btn-success'%>
+      </div>
+      <div class="col-md-10">
+      </div>
+    </div>
+  </div>
+</div>

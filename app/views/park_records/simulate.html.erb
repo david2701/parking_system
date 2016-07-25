@@ -1,0 +1,35 @@
+<div class="row" >
+  <div class="col-md-2">
+    <%= render partial: "layouts/user_menu" %>
+  </div>
+  <div class="col-md-6">
+    <h3 class="text-center"> New Parking Records for <%= @location.name %> slots </h3>
+  </div>
+  <div class="col-md-4">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-3">
+    <%= form_tag location_use_slots_path(@location), method: 'post' do %>
+      <div class="form-group">
+        <%= submit_tag "Cars are parking", class: 'btn btn-primary'%>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <%= form_tag location_leave_slots_path(@location), method: 'put' do %>
+      <div class="form-group">
+        <%= submit_tag "Cars are leaving", class: 'btn btn-warning'%>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <%= link_to "Cancel", location_slots_path(@location), class: 'btn btn-default'%>
+    </div>
+  </div>
+</div>

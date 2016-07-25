@@ -1,0 +1,56 @@
+<div class="row" >
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <h3 class="text-center"> Edit Location <%=@location.name%></h3>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <%= form_for @location, url: {action: 'update'} do |form|%>
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.label :name, for:'name'%>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.text_field :name, class:'form-control', required: true%>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.label :description %>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.text_area :description, class:'form-control', size: "3x3"%>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <%= form.label :address %>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= form.text_field :address, required: true, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= form.submit "Update", class: 'btn btn-success'%>
+        <%= link_to "Cancel", locations_path, class: 'btn btn-default'%>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
